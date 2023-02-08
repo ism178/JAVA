@@ -12,6 +12,8 @@ public class Sundae extends IceCream{
 		super();
 		toppingName = "";
 		toppingPrice = 0.0;
+		setPackaging("");
+
 	}
 
 	//full constructor
@@ -19,6 +21,8 @@ public class Sundae extends IceCream{
 		super(n, sc, pps);
 		toppingName = tn;
 		toppingPrice = tp;
+		setPackaging("Boat");
+
 	}
 
 	//Methods
@@ -43,16 +47,7 @@ public class Sundae extends IceCream{
 	}
 
 	public String toString(){
-		String line1 = String.format("%s",getName());
-<<<<<<< HEAD
-		String line2 = String.format("%d lbs. @ $%f/lbs.:",scoopCount , pricePerScoop);
-		String line3 = String.format("$%f",calculateCost());
-		String line4 = String.format("[TAX: $%f]",calculateTax());
-		String line5 = String.format("%s",getToppingName());
-		String line6 = String.format("%f",toppingPrice);
-
-		String output = String.format("%s %s %s %s %s %s",line1,line2,line3,line4,line5,line6);
-=======
+		String line1 = String.format("%s (%s)",getName(), getPackaging());
 		String line2 = String.format("%d lbs.    @ $%.2f/lbs.:",scoopCount , pricePerScoop);
 		String line3 = String.format("$%.2f",calculateCost());
 		String line4 = String.format("[TAX: $%.2f]",calculateTax());
@@ -60,7 +55,6 @@ public class Sundae extends IceCream{
 		String line6 = String.format("%.2f",toppingPrice);
 
 		String output = String.format("%-25s%-30s%s%17s",line1,line2,line3,line4,line5,line6);
->>>>>>> ab5a0e4a3728f49e28277dee0d737a31653f332c
 
 
 

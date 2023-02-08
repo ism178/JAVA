@@ -12,6 +12,7 @@ public class Candy extends DessertItem{
 		super();
 		candyWeight = 0.0;
 		pricePerPound = 0.0;
+		setPackaging("");
 	}
 	
 	//full constructor
@@ -19,6 +20,7 @@ public class Candy extends DessertItem{
 		super(n);
 		candyWeight = cw;
 		pricePerPound = ppp;
+		setPackaging("Bag");
 	}
 	
 	//Methods
@@ -43,7 +45,7 @@ public class Candy extends DessertItem{
 	}
 
 	public String toString(){
-		String line1 = String.format("%s",getName());
+		String line1 = String.format("%s (%s)",getName(), getPackaging());
 		String line2 = String.format("%.2f lbs. @ $%.2f/lbs.:",candyWeight, pricePerPound);
 		String line3 = String.format("$%.2f",calculateCost());
 		String line4 = String.format("[TAX: $%.2f]",calculateTax());
@@ -51,7 +53,6 @@ public class Candy extends DessertItem{
 		String output = String.format("%-25s%-30s%s%17s",line1,line2,line3,line4);
 
 
-///cometario de ivan
 
 
 		return output;

@@ -40,17 +40,6 @@ public class Order {
 		return totalTax;
 	}
 	public String toString(){
-<<<<<<< HEAD
-		String finalOutput = "";
-		for (DessertItem e : order) {
-			finalOutput += e.toString() + "\n";
-			
-		}
-
-
-
-		return finalOutput;
-=======
 		String finalOutPut = "";
 		finalOutPut += "--------------------------------------Receipt---------------------------------\n";
 		for (DessertItem e : getOrderList()) {
@@ -63,10 +52,10 @@ public class Order {
 		double orderTotal = orderCost() + orderTax();
 		finalOutPut += String.format("%-25s$%-8.2f[Tax: $%.2f]\n",  "Order Subtotals: ", orderCost(), orderTax(), "\n");
 		finalOutPut += String.format("%-25s$%-8.2f\n", "Order Total: ", orderTotal, "\n");
+		finalOutPut += "------------------------------------------------------------------------------\n";
 	
 
 		return finalOutPut;
->>>>>>> ab5a0e4a3728f49e28277dee0d737a31653f332c
 	}
 
 }

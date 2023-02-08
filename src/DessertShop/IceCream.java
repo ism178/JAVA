@@ -12,6 +12,8 @@ public class IceCream extends DessertItem {
 		super();
 		scoopCount = 0;
 		pricePerScoop = 0.0;
+		setPackaging("");
+
 	}
 
 	//full constructor
@@ -19,6 +21,8 @@ public class IceCream extends DessertItem {
 		super(n);
 		scoopCount = sc;
 		pricePerScoop = pps;
+		setPackaging("Bowl");
+
 	}
 
 	//Methods
@@ -43,7 +47,7 @@ public class IceCream extends DessertItem {
 	}
 
 	public String toString(){
-		String line1 = String.format("%s",getName());
+		String line1 = String.format("%s (%s)",getName(), getPackaging());
 		String line2 = String.format("%d lbs.    @ $%.2f/lbs.:",scoopCount, pricePerScoop);
 		String line3 = String.format("$%.2f",calculateCost());
 		String line4 = String.format("[TAX: $%.2f]",calculateTax());

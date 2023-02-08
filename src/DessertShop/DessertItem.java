@@ -1,7 +1,17 @@
 package DessertShop;
 
-public abstract class DessertItem {
+public abstract class DessertItem implements Packaging{
 	//Attributes
+	private String Packaging;
+	
+	public String getPackaging() {
+		return Packaging;
+	}
+
+	public void setPackaging(String packaging) {
+		Packaging = packaging;
+	}
+
 	private String name;
 	private double taxPercent = 7.25;
 	

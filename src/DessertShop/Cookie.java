@@ -12,6 +12,8 @@ public class Cookie extends DessertItem {
 		super();
 		cookieQty = 0;
 		pricePerDozen = 0.0;
+		setPackaging("");
+
 	}
 
 	//full constructor
@@ -19,6 +21,8 @@ public class Cookie extends DessertItem {
 		super(n);
 		cookieQty = cq;
 		pricePerDozen = ppd;
+		setPackaging("Box");
+
 	}
 
 	//Methods
@@ -42,7 +46,7 @@ public class Cookie extends DessertItem {
 		return (cookieQty*pricePerDozen)/12;
 	}
 	public String toString(){
-		String line1 = String.format("%s",getName());
+		String line1 = String.format("%s (%s)",getName(), getPackaging());
 		String line2 = String.format("%d lbs.    @ $%.2f/lbs.:",cookieQty, pricePerDozen);
 		String line3 = String.format("$%.2f",calculateCost());
 		String line4 = String.format("[TAX: $%.2f]",calculateTax());
