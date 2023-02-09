@@ -2,10 +2,10 @@ package DessertShop;
 
 import java.util.*;
 
-public class Order {
+public class Order implements Payable{
 	//Attributes
 	private ArrayList<DessertItem> order;
-	
+	private PayType payMethond;
 	//Constructors
 	public Order() {
 		order = new ArrayList<DessertItem>();
@@ -56,6 +56,14 @@ public class Order {
 	
 
 		return finalOutPut;
+	}
+
+	public String getPayType() {
+		return null;
+	}
+
+	public void setPayType(String payType) {
+		
 	}
 
 }
