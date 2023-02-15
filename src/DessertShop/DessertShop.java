@@ -3,6 +3,7 @@ package DessertShop;
 import java.util.*;
 
 public class DessertShop {
+	private String paymentMethod;s
 
 	public static void main(String[] args) {
 		
@@ -71,6 +72,14 @@ public class DessertShop {
 		    }//end of if (choice.equals(""))
 		}//end of while (!done)
 		System.out.println();
+		boolean run true;
+		while(run){
+			System.out.println("What type of payment?");
+			for(Payable.PayType type : Payable.PayType.values()){
+				System.out.println(type);
+			}
+
+		}
 		System.out.println(order1.toString());
 		
 		sIn.close();
