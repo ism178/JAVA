@@ -9,6 +9,7 @@ public class Order implements Payable{
 	//Constructors
 	public Order() {
 		order = new ArrayList<DessertItem>();
+		payMethod = PayTipe.CASH;
 	}
 	
 	//Methods
