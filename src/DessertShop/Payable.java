@@ -6,7 +6,7 @@ public interface Payable{
         CARD,
         PHONE
     }
-    String getPayType();
-    void setPayType(String payType);
+    payType getPayType();
+    void setPayType(payType n);
 }
 

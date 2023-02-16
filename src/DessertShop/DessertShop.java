@@ -2,8 +2,9 @@ package DessertShop;
 
 import java.util.*;
 
-public class DessertShop {
-	private String paymentMethod;s
+
+public class DessertShop{
+	private String paymentMethod;
 
 	public static void main(String[] args) {
 		
@@ -72,12 +73,25 @@ public class DessertShop {
 		    }//end of if (choice.equals(""))
 		}//end of while (!done)
 		System.out.println();
-		boolean run true;
+		boolean run = true;
 		while(run){
-			System.out.println("What type of payment?");
-			for(Payable.PayType type : Payable.PayType.values()){
-				System.out.println(type);
+			String methods = "";
+			for(Payable.payType type : Payable.payType.values()){
+				methods += type + ", ";
 			}
+			System.out.println("What form of payment will be used? (" + methods + "):");
+			String res = "";
+			res = sIn.nextLine();
+			if(res.equalsIgnoreCase("CASH")){
+				Order.setPayType(payType.CASH);
+			}else if(res.equalsIgnoreCase("CARD")){
+				Order.setPayType(payType.CARD);
+			}else if(res.equalsIgnoreCase("PHONE")){
+				Order.setPayType(payType.PHONE);
+			}else {
+				System.out.println("That's not a valid form of payment.");
+			}
+
 
 		}
 		System.out.println(order1.toString());
