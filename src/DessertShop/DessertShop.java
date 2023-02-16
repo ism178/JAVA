@@ -1,7 +1,7 @@
 package DessertShop;
 
 import java.util.*;
-
+import DessertShop.Payable.payType;
 
 public class DessertShop{
 	private String paymentMethod;
@@ -73,27 +73,34 @@ public class DessertShop{
 		    }//end of if (choice.equals(""))
 		}//end of while (!done)
 		System.out.println();
-		boolean run = true;
-		while(run){
-			String methods = "";
+
+		boolean valid = false;
+		while (!valid) {
+			System.out.println("What form of payment will be used? (CASH, CARD, PHONE): ");
+			String PaymentMethod = sIn.nextLine();
 			for(Payable.payType type : Payable.payType.values()){
-				methods += type + ", ";
+				if (PaymentMethod.equals(type.name())) {
+					valid = true;
+					switch (PaymentMethod) {
+					case "CASH":
+						order1.setPayType(payType.CASH);
+						break;
+					case "CARD":
+						order1.setPayType(payType.CARD);
+						break;
+					case "PHONE":
+						order1.setPayType(payType.PHONE);
+						break;
+					}
+				}
 			}
-			System.out.println("What form of payment will be used? (" + methods + "):");
-			String res = "";
-			res = sIn.nextLine();
-			if(res.equalsIgnoreCase("CASH")){
-				Order.setPayType(payType.CASH);
-			}else if(res.equalsIgnoreCase("CARD")){
-				Order.setPayType(payType.CARD);
-			}else if(res.equalsIgnoreCase("PHONE")){
-				Order.setPayType(payType.PHONE);
-			}else {
+			if (!valid) {
 				System.out.println("That's not a valid form of payment.");
 			}
+		}//end of valid while
 
 
-		}
+		
 		System.out.println(order1.toString());
 		
 		sIn.close();

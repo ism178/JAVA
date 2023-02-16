@@ -5,11 +5,11 @@ import java.util.*;
 public class Order implements Payable{
 	//Attributes
 	private ArrayList<DessertItem> order;
-	public static payType payMethond;
+	public static payType payMethod;
 	//Constructors
 	public Order() {
 		order = new ArrayList<DessertItem>();
-		payMethond = payMethond.CASH;
+		payMethod = payMethod.CASH;
 	}
 	
 	//Methods
@@ -54,18 +54,18 @@ public class Order implements Payable{
 		finalOutPut += String.format("%-25s$%-8.2f[Tax: $%.2f]\n",  "Order Subtotals: ", orderCost(), orderTax(), "\n");
 		finalOutPut += String.format("%-25s$%-8.2f\n", "Order Total: ", orderTotal, "\n");
 		finalOutPut += "------------------------------------------------------------------------------\n";
-		finalOutPut += String.format("Paid for with %s", payMethond);
+		finalOutPut += String.format("Paid for with %s", payMethod);
 	
 
 		return finalOutPut;
 	}
 
 	public payType getPayType() {
-		return payMethond;
+		return payMethod;
 	}
 
 	public void setPayType(payType n) {
-		payMethond = n;
+		payMethod = n;
 	}
 
 }
