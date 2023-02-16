@@ -99,8 +99,8 @@ public class DessertShop{
 			}
 		}//end of valid while
 
-
-		
+		//sorting items, lab 6b
+		Collections.sort(order1.getOrderList());
 		System.out.println(order1.toString());
 		
 		sIn.close();
