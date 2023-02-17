@@ -60,4 +60,8 @@ public abstract class DessertItem implements Packaging, Comparable<DessertItem>{
 		return 0;
 	}
 
+	public boolean isSameAs() {
+		return false;
+	}
+
 }
