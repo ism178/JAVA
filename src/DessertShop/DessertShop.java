@@ -1,8 +1,10 @@
 package DessertShop;
 
 import java.util.*;
+import DessertShop.Payable.payType;
 
-public class DessertShop {
+public class DessertShop{
+	private String paymentMethod;
 
 	public static void main(String[] args) {
 		
@@ -71,6 +73,34 @@ public class DessertShop {
 		    }//end of if (choice.equals(""))
 		}//end of while (!done)
 		System.out.println();
+
+		boolean valid = false;
+		while (!valid) {
+			System.out.println("What form of payment will be used? (CASH, CARD, PHONE): ");
+			String PaymentMethod = sIn.nextLine();
+			for(Payable.payType type : Payable.payType.values()){
+				if (PaymentMethod.equals(type.name())) {
+					valid = true;
+					switch (PaymentMethod) {
+					case "CASH":
+						order1.setPayType(payType.CASH);
+						break;
+					case "CARD":
+						order1.setPayType(payType.CARD);
+						break;
+					case "PHONE":
+						order1.setPayType(payType.PHONE);
+						break;
+					}
+				}
+			}
+			if (!valid) {
+				System.out.println("That's not a valid form of payment.");
+			}
+		}//end of valid while
+
+		//sorting items, lab 6b
+		Collections.sort(order1.getOrderList());
 		System.out.println(order1.toString());
 		
 		sIn.close();
