@@ -1,6 +1,7 @@
 package DessertShop;
 
-public class Candy extends DessertItem{
+public class Candy  extends DessertItem implements SameItem<Candy>{
+	
 	
 	//Attributes
 	private double candyWeight;
@@ -52,10 +53,15 @@ public class Candy extends DessertItem{
 
 		String output = String.format("%-25s%-30s%s%17s",line1,line2,line3,line4);
 
-//hola que tal
-
-
 		return output;
+	}
+
+	@Override
+	public boolean isSameAs(Candy other) {
+		Boolean RES = false;
+		if(getName() == other.getName()){RES = true;}
+		if(this.candyWeight == other.candyWeight){RES = true;}
+		return RES;
 	}
 
 }

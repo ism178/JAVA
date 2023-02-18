@@ -18,7 +18,16 @@ public class Order implements Payable{
 	}
 	
 	public void add(DessertItem di) {
-		order.add(di);
+		boolean res =false;
+
+		for (DessertItem i : order) {
+			
+			if(){};
+			if(i.isSameAs()){res = true};
+
+			
+		}
+		if(res){order.add(di);}
 	}
 	
 	public int itemCount() {
