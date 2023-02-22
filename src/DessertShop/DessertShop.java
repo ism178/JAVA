@@ -4,7 +4,9 @@ import java.util.*;
 import DessertShop.Payable.payType;
 
 public class DessertShop{
-	private String paymentMethod;
+	static HashMap<String, Customer>  list = new HashMap<String, Customer>();
+
+
 
 	public static void main(String[] args) {
 		
@@ -74,6 +76,20 @@ public class DessertShop{
 		}//end of while (!done)
 		System.out.println();
 
+
+		System.out.println("Enter the customer name: ");
+		String CName = sIn.nextLine();
+
+
+		HashMap<String, Customer> Customer = new Customer();
+
+
+
+
+
+
+
+
 		boolean valid = false;
 		while (!valid) {
 			System.out.println("What form of payment will be used? (CASH, CARD, PHONE): ");
@@ -98,6 +114,7 @@ public class DessertShop{
 				System.out.println("That's not a valid form of payment.");
 			}
 		}//end of valid while
+
 
 		//sorting items, lab 6b
 		Collections.sort(order1.getOrderList());

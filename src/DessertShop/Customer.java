@@ -1,4 +1,4 @@
-package dessertShop;
+package DessertShop;
 import java.util.*;
 
 public class Customer {
@@ -7,12 +7,12 @@ public class Customer {
 	private String custName;
 	private ArrayList<Order>orderHistory;
 	private int custID;
-	private static int nextCustID = 1000;
+	private int nextCustID = 1000;
 	
 	//Constructors
 	public Customer(String cN) {
 		custName = cN;
-		nextCustID = 1000;
+		nextCustID += nextCustID +1;
 	}
 	
 	//Methods
