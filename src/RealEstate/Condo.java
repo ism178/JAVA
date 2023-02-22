@@ -19,7 +19,24 @@ public class Condo extends Residential {
     public void setFloorLvl(int floorLvl) {
         this.floorLvl = floorLvl;
     }
+    @Override
+    double calculateAppraisalPrice() {
+        double sqr = 88.00;
+        double bed = 8000.00;
+        double bath = 10000.00;
+        double lvl = 5000.00;
+        double math =0;
+        if(getFloorLvl() > 1){
+            math = sqr * getSqFootage() + bed * getBedCount() + bath * getBathCount() + lvl * (getFloorLvl() -1);
+        }else{
+            math = sqr * getSqFootage() + bed * getBedCount() + bath * getBathCount();
+        }
+        return math;
 
+
+        
+        
+    }
     
 
     

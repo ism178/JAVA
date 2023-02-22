@@ -1,10 +1,9 @@
 package RealEstate;
 
-public class Residential extends Property{
+abstract class Residential extends Property{
     private int bedCount;
     private int bathCount;
     private int sqFootage;
-
     
     public Residential() {
         super("",0);

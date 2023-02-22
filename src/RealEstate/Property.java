@@ -1,9 +1,27 @@
 package RealEstate;
 
 
-public class Property {
+abstract class  Property {
     private String streetAdress;
     private int zip;
+    double listPrice = 0;
+    double appraisalPrice = 0;
+
+    public double getListPrice() {
+        return listPrice;
+    }
+    public void setListPrice(double listPrice) {
+        this.listPrice = listPrice;
+    }
+    public double getAppraisalPrice() {
+        return appraisalPrice;
+    }
+    protected void setAppraisalPrice(double appraisalPrice) {
+        this.appraisalPrice = appraisalPrice;
+    }
+    
+    abstract double calculateAppraisalPrice();
+
 
     Property(){
         streetAdress = "";

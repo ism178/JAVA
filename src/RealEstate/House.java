@@ -1,6 +1,6 @@
 package RealEstate;
 
-public class House extends Residential{
+abstract class House extends Residential{
 
     private int yardAcres;
 
@@ -24,7 +24,18 @@ public class House extends Residential{
     }
     
     
+    @Override
+    double calculateAppraisalPrice() {
+        double sqr = 97.00;
+        double bed = 10000.00;
+        double bath = 12000.00;
+        double acy = 460000.00;
+        double math =0;
 
+        math = sqr * getSqFootage() + bed * getBedCount() + bath * getBathCount() + getYardAcres() * acy;
+
+        return math;
 
     
+}
 }
