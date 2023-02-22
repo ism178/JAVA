@@ -61,12 +61,14 @@ public class Cookie extends DessertItem implements SameItem<Cookie>{
 		return output;
 	}
 
-
+//lab 7a
 	public boolean isSameAs(Cookie other) {
-		Boolean RES = false;
-		if(getName() == other.getName()){RES = true;}
-		if(this.pricePerDozen == other.pricePerDozen){RES = true;}
-		return RES;
+		
+
+		if(this.getName().equals(other.getName()) && (this.getPricePerDozen() == (other.getPricePerDozen()))) {
+			return true;
+		}
+		return false;
 	}
 
 }

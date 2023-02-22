@@ -56,12 +56,13 @@ public class Candy  extends DessertItem implements SameItem<Candy>{
 		return output;
 	}
 
-	@Override
+	//lab 7a 
 	public boolean isSameAs(Candy other) {
-		Boolean RES = false;
-		if(getName() == other.getName()){RES = true;}
-		if(this.candyWeight == other.candyWeight){RES = true;}
-		return RES;
+		
+		if(this.getName().equals(other.getName()) && ((this.getCandyWeight() == (other.getCandyWeight())))) {
+			return true;
+		}
+		return false;
 	}
 
 }
