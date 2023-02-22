@@ -17,18 +17,32 @@ public class Order implements Payable{
 		return order;
 	}
 	
-	public void add(DessertItem di) {
-		boolean res =false;
-
-		for (DessertItem i : order) {
+	public void add(DessertItem NEWdi) { 
+		
+		if(NEWdi instanceof Candy) {
+			for(DessertItem existing : this.order) {
+				if(existing instanceof Candy) {
+					if(((Candy) NEWdi).isSameAs((Candy)existing)) {
+						((Candy)existing).setCandyWeight(((Candy)existing).getCandyWeight() + ((Candy)NEWdi).getCandyWeight());
+						return;
+					}//end of if NEWid is Same As Candy
+				}
+			}
+				} else if(NEWdi instanceof Cookie) {
+					for(DessertItem existing1 : this.order) {
+						if(existing1 instanceof Cookie) {
+							if(((Cookie) NEWdi).isSameAs((Cookie)existing1)) {
+								((Cookie)existing1).setCookieQty((int) (((Cookie)existing1).getCookieQty() + ((Cookie)NEWdi).getCookieQty()));
+								return;
+							}
+						}
+					}//end of if NEWid is Same As Cookie
+				}//end of for loop
 			
-			if(){};
-			if(i.isSameAs()){res = true};
-
-			
-		}
-		if(res){order.add(di);}
-	}
+		//end of instanceof Candy
+		order.add(NEWdi);
+		
+	} // end of add method
 	
 	public int itemCount() {
 		return order.size();
