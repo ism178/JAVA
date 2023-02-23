@@ -4,7 +4,7 @@ import java.util.*;
 public class Customer {
 
 	//Attributes
-	private String custName;
+	private static String custName;
 	private ArrayList<Order>orderHistory;
 	private int custID;
 	private int nextCustID = 1000;
@@ -16,11 +16,11 @@ public class Customer {
 	}
 	
 	//Methods
-	public String getName() {
+	public static String getName() {
 		return custName;
 	}
 	
-	public int getID() {
+	public static int getID() {
 		return custID;
 	}
 	

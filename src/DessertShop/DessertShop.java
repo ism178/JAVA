@@ -4,12 +4,15 @@ import java.util.*;
 import DessertShop.Payable.payType;
 
 public class DessertShop{
-	static HashMap<String, Customer>  list = new HashMap<String, Customer>();
 
+	static HashMap<String, Customer>  customerDB = new HashMap<String, Customer>();
+	
 
 
 	public static void main(String[] args) {
 		
+
+
 		Order order1 = new Order();
 		
 		Candy c1 = new Candy("Candy Corn", 1.5, .25);
@@ -44,9 +47,6 @@ public class DessertShop{
 		    System.out.print("\nWhat would you like to add to the order? (1-4, Enter for done): ");
 		    choice = sIn.nextLine();
 		    
-		    if (choice.equals("")) {
-		        done = true;
-		    } else {
 		        switch (choice) {
 		            case "1":            
 		                orderItem = userPromptCandy(order1, "Please enter the name of the Candy: ", "Please enter the weight of the Candy: ", "Please enter the price per pound of the Candy: ");
@@ -72,7 +72,6 @@ public class DessertShop{
 		                System.out.println("Invalid response:  Please enter a choice from the menu (1-4)");
 		              break;
 		        }//end of switch (choice)
-		    }//end of if (choice.equals(""))
 		}//end of while (!done)
 		System.out.println();
 
@@ -80,8 +79,17 @@ public class DessertShop{
 		System.out.println("Enter the customer name: ");
 		String CName = sIn.nextLine();
 
+		
 
-		HashMap<String, Customer> Customer = new Customer();
+		//customerDB.put(Customer.getName(), );
+
+		if(customerDB.containsKey(CName)){
+			
+		
+
+		}
+
+
 
 
 
