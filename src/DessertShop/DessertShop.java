@@ -10,8 +10,11 @@ public class DessertShop{
 
 
 	public static void main(String[] args) {
-		
 
+		
+		boolean closed = false;
+
+		while(!closed){
 
 		Order order1 = new Order();
 		
@@ -32,10 +35,15 @@ public class DessertShop{
 		
 		Cookie co2 = new Cookie("Oatmeal Raisin", 2, 3.45);
 		order1.add(co2);
+
+		
 		
 		Scanner sIn = new Scanner(System.in);    
 		String choice;
 		DessertItem orderItem;
+
+		
+		
 
 		boolean done = false;
 		while (!done) {
@@ -45,8 +53,12 @@ public class DessertShop{
 		    System.out.println("4: Sunday");
 
 		    System.out.print("\nWhat would you like to add to the order? (1-4, Enter for done): ");
+			
 		    choice = sIn.nextLine();
 		    
+		    if (choice.equals("")) {
+		        done = true;
+		    } else {
 		        switch (choice) {
 		            case "1":            
 		                orderItem = userPromptCandy(order1, "Please enter the name of the Candy: ", "Please enter the weight of the Candy: ", "Please enter the price per pound of the Candy: ");
@@ -72,31 +84,25 @@ public class DessertShop{
 		                System.out.println("Invalid response:  Please enter a choice from the menu (1-4)");
 		              break;
 		        }//end of switch (choice)
+		    }//end of if (choice.equals(""))
 		}//end of while (!done)
 		System.out.println();
 
+		
 
 		System.out.println("Enter the customer name: ");
-		String CName = sIn.nextLine();
+		String custName = sIn.nextLine();
 
-		
+		Customer custObject = new Customer(custName);
 
-		//customerDB.put(Customer.getName(), );
+		customerDB.put(Customer.getName(), custObject);
 
-		if(customerDB.containsKey(CName)){
-			
-		
-
+		if(!customerDB.containsKey(custName)){
+			Customer object1 = new Customer(custName);
+			customerDB.put(custName, object1);
 		}
 
-
-
-
-
-
-
-
-
+		customerDB.get(custName).addToHistory(order1);
 
 		boolean valid = false;
 		while (!valid) {
@@ -128,12 +134,15 @@ public class DessertShop{
 		Collections.sort(order1.getOrderList());
 		System.out.println(order1.toString());
 		
+
 		sIn.close();
-
-    }
-
-
+    	}
+	}
 	
+
+
+
+
 	private static DessertItem userPromptSundae(Order order1, String s1, String s2, String s3, String s4, String s5) {
 		
 		Scanner sIn = new Scanner(System.in);

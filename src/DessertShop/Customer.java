@@ -6,13 +6,12 @@ public class Customer {
 	//Attributes
 	private static String custName;
 	private ArrayList<Order>orderHistory;
-	private int custID;
+	private static int custID;
 	private int nextCustID = 1000;
 	
 	//Constructors
 	public Customer(String cN) {
 		custName = cN;
-		nextCustID += nextCustID +1;
 	}
 	
 	//Methods
