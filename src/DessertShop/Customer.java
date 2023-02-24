@@ -6,8 +6,8 @@ public class Customer {
 	//Attributes
 	private static String custName;
 	private ArrayList<Order>orderHistory;
-	private static int custID;
-	private int nextCustID = 1000;
+	private static int custID =1000;
+	// private int nextCustID = 1000;
 	
 	//Constructors
 	public Customer(String cN) {
@@ -20,7 +20,7 @@ public class Customer {
 	}
 	
 	public static int getID() {
-		return custID;
+		return custID++;
 	}
 	
 	public ArrayList<Order>getOrderHistory(){
@@ -31,8 +31,7 @@ public class Customer {
 		custName = n;
 	}
 	
-	public void addToHistory(Order o) {
-		
+	public void addToHistory(Order oH){
 	}
 	
 }

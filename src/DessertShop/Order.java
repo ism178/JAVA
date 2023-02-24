@@ -80,9 +80,16 @@ public class Order implements Payable{
 		finalOutPut += String.format("Paid for with %s", payMethod);
 		finalOutPut += String.format("\n");
 		finalOutPut += "------------------------------------------------------------------------------\n";
-		finalOutPut += String.format("Customer Name: %s, Customer ID: %s", Customer.getName(), (Customer.getID()));
+
+		if(hashmop === get usr){
+			hash id
+
+		}
+
+
+		finalOutPut += String.format("Customer Name: %s, Customer ID: %d", Customer.getName(), (Customer.getID()));
 		finalOutPut += String.format("\n");
-		finalOutPut += String.format("Hit Enter to start a new order.");
+		
 
 		return finalOutPut;
 	}

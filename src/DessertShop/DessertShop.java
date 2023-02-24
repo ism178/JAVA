@@ -11,7 +11,7 @@ public class DessertShop{
 
 	public static void main(String[] args) {
 
-		
+		Scanner sIn = new Scanner(System.in);
 		boolean closed = false;
 
 		while(!closed){
@@ -38,15 +38,15 @@ public class DessertShop{
 
 		
 		
-		Scanner sIn = new Scanner(System.in);    
-		String choice;
+		    
 		DessertItem orderItem;
 
-		
-		
 
 		boolean done = false;
+		
 		while (!done) {
+			String choice = "";
+
 		    System.out.println("\n1: Candy");
 		    System.out.println("2: Cookie");            
 		    System.out.println("3: Ice Cream");
@@ -93,16 +93,16 @@ public class DessertShop{
 		System.out.println("Enter the customer name: ");
 		String custName = sIn.nextLine();
 
-		Customer custObject = new Customer(custName);
-
-		customerDB.put(Customer.getName(), custObject);
-
 		if(!customerDB.containsKey(custName)){
 			Customer object1 = new Customer(custName);
 			customerDB.put(custName, object1);
+			object1.addToHistory(order1);
+		}else{
+			Customer object1 = new Customer(custName);
+			object1.addToHistory(order1);
+
 		}
 
-		customerDB.get(custName).addToHistory(order1);
 
 		boolean valid = false;
 		while (!valid) {
@@ -134,9 +134,12 @@ public class DessertShop{
 		Collections.sort(order1.getOrderList());
 		System.out.println(order1.toString());
 		
-
-		sIn.close();
+		System.out.println("Hit Enter to start a new order.");
+		String xxx;
+		xxx = sIn.nextLine();
+		
     	}
+		sIn.close();
 	}
 	
 
