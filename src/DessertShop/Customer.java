@@ -4,23 +4,25 @@ import java.util.*;
 public class Customer {
 
 	//Attributes
-	private static String custName;
+	private String custName;
 	private ArrayList<Order>orderHistory;
-	private static int custID =1000;
-	// private int nextCustID = 1000;
+	private  int custID;
+	private static int nextCustID = 1000;
 	
 	//Constructors
 	public Customer(String cN) {
 		custName = cN;
+		custID = nextCustID++;
+		orderHistory.add(null);
 	}
 	
 	//Methods
-	public static String getName() {
+	public String getName() {
 		return custName;
 	}
 	
-	public static int getID() {
-		return custID++;
+	public int getID() {
+		return custID;
 	}
 	
 	public ArrayList<Order>getOrderHistory(){
@@ -31,7 +33,8 @@ public class Customer {
 		custName = n;
 	}
 	
-	public void addToHistory(Order oH){
+	public void addToHistory(Order o){
+		orderHistory.add(o);
 	}
 	
 }

@@ -81,14 +81,9 @@ public class Order implements Payable{
 		finalOutPut += String.format("\n");
 		finalOutPut += "------------------------------------------------------------------------------\n";
 
-		if(hashmop === get usr){
-			hash id
-
-		}
-
-
+/*
 		finalOutPut += String.format("Customer Name: %s, Customer ID: %d", Customer.getName(), (Customer.getID()));
-		finalOutPut += String.format("\n");
+		finalOutPut += String.format("\n"); */
 		
 
 		return finalOutPut;

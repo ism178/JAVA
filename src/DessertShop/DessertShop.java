@@ -92,24 +92,32 @@ public class DessertShop{
 
 		System.out.println("Enter the customer name: ");
 		String custName = sIn.nextLine();
+		Customer custObject;
 
 		if(!customerDB.containsKey(custName)){
-			Customer object1 = new Customer(custName);
-			customerDB.put(custName, object1);
-			object1.addToHistory(order1);
+			custObject = new Customer(custName);
+			customerDB.put(custName, custObject);
+			custObject.addToHistory(order1);
 		}else{
-			Customer object1 = new Customer(custName);
-			object1.addToHistory(order1);
+			custObject = new Customer(custName);
+			custObject.addToHistory(order1);
 
 		}
-
+		/*for(String p : customerDB.keySet()){
+			//System.out.println(p);
+			System.out.println(p + "     " +(customerDB.get(p)).getID());
+		} */
+		
+		
+		
+		
 
 		boolean valid = false;
 		while (!valid) {
 			System.out.println("What form of payment will be used? (CASH, CARD, PHONE): ");
 			String PaymentMethod = sIn.nextLine();
 			for(Payable.payType type : Payable.payType.values()){
-				if (PaymentMethod.equals(type.name())) {
+				if (PaymentMethod.equalsIgnoreCase(type.name())) {
 					valid = true;
 					switch (PaymentMethod) {
 					case "CASH":
@@ -133,6 +141,10 @@ public class DessertShop{
 		//sorting items, lab 6b
 		Collections.sort(order1.getOrderList());
 		System.out.println(order1.toString());
+
+		//lab 8a, printing the customer name and ID
+		System.out.println("Customer Name: " + custName + "     " + "Customer ID: " + (customerDB.get(custName)).getID() +  "     " + "Total Orders: " +(customerDB.get(custName)).getOrderHistory());
+
 		
 		System.out.println("Hit Enter to start a new order.");
 		String xxx;
