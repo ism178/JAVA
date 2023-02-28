@@ -99,9 +99,7 @@ public class DessertShop{
 			customerDB.put(custName, custObject);
 			custObject.addToHistory(order1);
 		}else{
-			custObject = new Customer(custName);
-			custObject.addToHistory(order1);
-
+			customerDB.get(custName).addToHistory(order1);
 		}
 		/*for(String p : customerDB.keySet()){
 			//System.out.println(p);
@@ -143,7 +141,7 @@ public class DessertShop{
 		System.out.println(order1.toString());
 
 		//lab 8a, printing the customer name and ID
-		System.out.println("Customer Name: " + custName + "     " + "Customer ID: " + (customerDB.get(custName)).getID() +  "     " + "Total Orders: " +(customerDB.get(custName)).getOrderHistory());
+		System.out.println("Customer Name: " + custName + "     " + "Customer ID: " + (customerDB.get(custName)).getID() +  "     " + "Total Orders: " +(customerDB.get(custName).getOrderHistory().size()));
 
 		
 		System.out.println("Hit Enter to start a new order.");

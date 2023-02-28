@@ -13,7 +13,7 @@ public class Customer {
 	public Customer(String cN) {
 		custName = cN;
 		custID = nextCustID++;
-		orderHistory.add(null);
+		orderHistory = new ArrayList<Order>();
 	}
 	
 	//Methods
