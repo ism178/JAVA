@@ -51,8 +51,9 @@ public class DessertShop{
 		    System.out.println("2: Cookie");            
 		    System.out.println("3: Ice Cream");
 		    System.out.println("4: Sunday");
+			System.out.println("5: Admin Module");
 
-		    System.out.print("\nWhat would you like to add to the order? (1-4, Enter for done): ");
+		    System.out.print("\nWhat would you like to add to the order? (1-5, Enter for done): ");
 			
 		    choice = sIn.nextLine();
 		    
@@ -79,6 +80,10 @@ public class DessertShop{
 		                orderItem = userPromptSundae(order1, "Please enter the name of the Sundae: ","Please enter the Scoop count: ","Please enter the price per Scoop: ","Please enter the Topping name: ","Please enter the topping price: ");
 		                order1.add(orderItem);
 		                System.out.printf("%n%s has been added to your order.%n",orderItem.getName());
+		                break;
+					//lab 8b
+					case "5":            
+		                orderItem = adminModule(sIn, customerDB);
 		                break;
 		            	default:            
 		                System.out.println("Invalid response:  Please enter a choice from the menu (1-4)");
@@ -152,6 +157,70 @@ public class DessertShop{
 		sIn.close();
 	}
 	
+
+
+
+	//lab 8b
+	private static DessertItem adminModule(Scanner sIn, HashMap<String, Customer>  CDB) {
+		
+		boolean switchDB = true;
+		while (switchDB) {
+			System.out.println("\n1: Shop Customer List\n"+"2: Customer Order History\n"+"3: Best Customer\n"+"4: Exit Admin Module");
+			System.out.println("What would you like to do? (1–4):");
+			String choice = sIn.nextLine();
+				
+			switch (choice) {
+
+				case "1":
+					for (Map.Entry<String, Customer> c : CDB.entrySet()) {
+						System.out.println("Customer Name: " + c.getKey() + "     " + "Customer ID: " + c.getValue().getID());
+					}
+					break;
+			
+				case "2":
+				System.out.println("Enter the name of the customer:");
+				String nameOfUser = sIn.nextLine();
+				if(!CDB.containsKey(nameOfUser)){
+					System.out.println("Customer not found");
+				} else {
+						System.out.println("Customer Name: " + nameOfUser + "     " + "Customer ID: " + (CDB.get(nameOfUser)).getID());
+						System.out.println();
+						System.out.println(CDB.get(nameOfUser).getOrderHistory());
+				}
+					break;
+			
+				case "3":
+
+					int mostOrders = 0;
+					String bestCustomer = "";
+					for (Map.Entry<String, Customer> entry : CDB.entrySet()) {
+						int numOrders = entry.getValue().getOrderHistory().size();
+						if (numOrders > mostOrders) {
+							mostOrders = numOrders;
+							bestCustomer = entry.getKey();
+						}
+					}
+					System.out.println("The Dessert Shop's most valued customer is: " + bestCustomer);
+					System.out.println("This customer has placed " + mostOrders + " orders.");
+				break;
+					
+				case "4":
+					switchDB = false;
+					
+					break;
+			
+				default:
+					System.out.println("Try again (1-4)");
+					break;
+			}
+		}
+		
+	
+		
+
+		return null;
+	}
+
 
 
 
