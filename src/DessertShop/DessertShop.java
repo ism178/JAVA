@@ -157,6 +157,17 @@ public class DessertShop{
 		sIn.close();
 	}
 	
+	/*
+	 * 
+	 * 
+	 * 
+	 * Lab 7a error cuando se crea una nueva cookie porque la crea con una bag en lugar de box o algo así.......
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
 
 
