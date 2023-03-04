@@ -166,7 +166,7 @@ public class DessertShop{
 		boolean switchDB = true;
 		while (switchDB) {
 			System.out.println("\n1: Shop Customer List\n"+"2: Customer Order History\n"+"3: Best Customer\n"+"4: Exit Admin Module");
-			System.out.println("What would you like to do? (1–4):");
+			System.out.println("What would you like to do? (1-14):");
 			String choice = sIn.nextLine();
 				
 			switch (choice) {
