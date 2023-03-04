@@ -157,16 +157,32 @@ public class DessertShop{
 		sIn.close();
 	}
 	
+	/*
+	 * 
+	 * 
+	 * 
+	 * Lab 7a error cuando se crea una nueva cookie porque la crea con una bag en lugar de box o algo así.......
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 
 
 
 	//lab 8b
 	private static DessertItem adminModule(Scanner sIn, HashMap<String, Customer>  CDB) {
-		
+
 		boolean switchDB = true;
 		while (switchDB) {
+<<<<<<< HEAD
 			System.out.println("\n1: Shop Customer List\n"+"2: Customer Order History\n"+"3: Best Customer\n"+"4: Exit Admin Module");
 			System.out.println("What would you like to do? (1-14):");
+=======
+			System.out.println("\n1: Show Customer List\n"+"2: Customer Order History\n"+"3: Best Customer\n"+"4: Exit Admin Module");
+			System.out.println("What would you like to do? (1-4):");
+>>>>>>> 727dba063e8d02c6fa370e178cd644d83d8f7124
 			String choice = sIn.nextLine();
 				
 			switch (choice) {
