@@ -8,7 +8,7 @@ import BlackJack.*;
 
 public class PlayBlackJack {
 	   
-	   // card numbers
+	// card numbers
 	static final int ACE = 1;
 	static final int TWO = 2;
 	static final int THREE = 3;
@@ -25,18 +25,21 @@ public class PlayBlackJack {
     static final int KING = 14;
 
     // shapes
-    static final int SPADE = 1;
-    static final int HEART = 2;
-    static final int DIAMOND = 3;
-    static final int CLUB = 4;
+    static final int CLUB = 1;
+    static final int DIAMOND = 2;
+    static final int HEART = 3;
+    static final int SPADE = 4;
 
     
     public static void main(String[] args) {
  
-    	// Parameters for testing ....
-       BJCard BJ = new BJCard(SEVEN, HEART);
-       CardTest.run(BJ);
+    // 	Parameters for testing ....
     	
+    /*	BJCard BJ = new BJCard(ACE, CLUB);
+        	CardTest.run(BJ);  			*/
+        	
+    	DeckTest.run(new BJDeck());
+    		
     }
     
 }
