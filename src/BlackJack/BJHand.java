@@ -1,14 +1,14 @@
 // Erick Duran & Ivan Marin
-// Lab 10a: BlackJack, Part 3—BJHand
+// Lab 10a: BlackJack, Part 3ï¿½BJHand
 // Mar 11, 2023
 
 package BlackJack;
 
 import java.util.ArrayList;
 import BlackJackBase.PCard;
-import BlackJackBase.PHand;
+import BlackJackBase.PGame;
 
-public class BJHand implements PHand {
+public class BJHand implements PGame {
     ArrayList<PCard> hand;
 
     public BJHand() {

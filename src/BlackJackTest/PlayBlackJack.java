@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import BlackJack.*;
 import BlackJackBase.PCard;
-import BlackJackBase.PHand;
+import BlackJackBase.PGame;
 
 public class PlayBlackJack {
 	   
@@ -45,7 +45,7 @@ public class PlayBlackJack {
     
    //   10A
    //   Mar 11, 2023
-   // 	Lab 10a: BlackJack, Part 3—BJHand
+   // 	Lab 10a: BlackJack, Part 3ï¿½BJHand
      	HandTest.run(new BJDeck(), new BJHand());
     	
     	
