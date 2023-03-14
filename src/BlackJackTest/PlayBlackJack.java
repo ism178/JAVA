@@ -1,10 +1,12 @@
 // Erick Duran & Ivan Marin
-// Lab 9a: BlackJack Part 1: BJCard
-// Feb 01, 2023
 
 package BlackJackTest;
 
+import java.util.ArrayList;
+
 import BlackJack.*;
+import BlackJackBase.PCard;
+import BlackJackBase.PHand;
 
 public class PlayBlackJack {
 	   
@@ -29,17 +31,24 @@ public class PlayBlackJack {
     static final int DIAMOND = 2;
     static final int HEART = 3;
     static final int SPADE = 4;
-
     
     public static void main(String[] args) {
  
     // 	Parameters for testing ....
-    	
-    /*	BJCard BJ = new BJCard(ACE, CLUB);
-        	CardTest.run(BJ);  			*/
+   
+   //	9A
+   // 	BJCard BJ = new BJCard(ACE, CLUB);
+   //     CardTest.run(BJ);  			
         	
-    	DeckTest.run(new BJDeck());
-    		
+   //   9B 	
+   // 	DeckTest.run(new BJDeck());
+    
+   //   10A
+   //   Mar 11, 2023
+   // 	Lab 10a: BlackJack, Part 3—BJHand
+     	HandTest.run(new BJDeck(), new BJHand());
+    	
+    	
     }
     
 }
