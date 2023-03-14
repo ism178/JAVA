@@ -1,4 +1,4 @@
-package S2.RealEstate;
+package S2.RE;
 
 import java.util.Collection;
 import java.util.HashMap;

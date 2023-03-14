@@ -1,4 +1,4 @@
-package RealEstate;
+package S2.RE;
 
 abstract class Residential extends Property{
     private int bedCount;

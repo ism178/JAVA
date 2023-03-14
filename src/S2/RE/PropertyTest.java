@@ -1,4 +1,4 @@
-package RealEstate;
+package S2.RE;
 
 public class PropertyTest {
     @Test

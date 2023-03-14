@@ -1,4 +1,4 @@
-package RealEstate;
+package S2.RE;
 
 abstract class House extends Residential{
 

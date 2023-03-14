@@ -1,4 +1,4 @@
-package RealEstate;
+package S2.RE;
 
 public class Condo extends Residential {
     private int floorLvl;
