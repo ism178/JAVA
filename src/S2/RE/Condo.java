@@ -37,7 +37,30 @@ public class Condo extends Residential {
         
         
     }
-    
+    @Override
+    public String toString() {
+        String formattedAppraisalPrice = String.format("$%,.2f", calculateAppraisalPrice());
+        String formattedListPrice = String.format("$%,.2f", getListPrice());
+
+        return String.format(
+            "-------------------------------------------------------------------------------------------------------\n" +
+            "Residence Type: House           Address: %s           Zip Code: %s\n" +
+            "-------------------------------------------------------------------------------------------------------\n" +
+            "Sq Footage: %d\n" +
+            "Bedrooms: %d\n" +
+            "Bathrooms: %d\n" +
+            "Floor Lvevel: %d\n" +
+            "------------------------------------------\n" +
+            "Appraisal Price: %s\n" +
+            "List Price: %s\n" +
+            "------------------------------------------\n",
+            getAddress(), getZipCode(), getSqFootage(), getBedCount(), getBathCount(), getFloorLvl(),
+            formattedAppraisalPrice, formattedListPrice
+        );
+    }
+    public int getZipCode() {
+        return getZip();
+    }
 
     
 

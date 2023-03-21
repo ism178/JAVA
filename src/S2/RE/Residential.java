@@ -37,6 +37,8 @@ abstract class Residential extends Property{
         this.sqFootage = sqFootage;
     }
 
+    
+
 
     
 }

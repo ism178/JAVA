@@ -3,7 +3,7 @@ package S2.RE;
 
 abstract class  Property {
     private String streetAdress;
-    private int zip;
+    protected int zip;
     double listPrice = 0;
     double appraisalPrice = 0;
 
@@ -32,7 +32,7 @@ abstract class  Property {
         zip =b;
     }
 
-    public String getStreetAdress(){
+    public String getAddress(){
         return streetAdress;
     }
     public int getZip(){
