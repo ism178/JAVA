@@ -1,4 +1,4 @@
-package BlackJackTest;
+package S2.BJ.BlackJackTest;
 
 import java.awt.Color;
 import java.awt.Dimension;

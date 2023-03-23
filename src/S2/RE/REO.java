@@ -95,35 +95,35 @@ public class REO {
         }
     }
     
-// add listing menu option 1 - add house
+// Add listing menu option 1 - Add house
 public static void addHouse(Scanner input) {
     System.out.println("----------------------------------------");
     System.out.println("                    Add House");
     System.out.println("----------------------------------------");
     System.out.println("Enter address: ");
     String address = input.next();
-    System.out.println("Enter square footage: ");
-    double sqft = input.nextDouble();
+    System.out.println("Enter zip code: ");
+    int zip = input.nextInt();
     System.out.println("Enter number of bedrooms: ");
     int bedrooms = input.nextInt();
     System.out.println("Enter number of bathrooms: ");
     int bathrooms = input.nextInt();
-    System.out.println("Enter age: ");
-    int age = input.nextInt();
-    System.out.println("Enter garage size: ");
-    int garageSize = input.nextInt();
-    
-    House house = new House(address, sqft, bedrooms, bathrooms, age, garageSize);
-    
-    // display appraisal price
+    System.out.println("Enter square footage: ");
+    int sqFootage = input.nextInt();
+    System.out.println("Enter yard acres: ");
+    int yardAcres = input.nextInt();
+
+    House house = new House(address, zip, bedrooms, bathrooms, sqFootage, yardAcres);
+
+    // Display appraisal price
     System.out.println("Appraisal price: $" + house.getAppraisalPrice());
-    
-    // ask user for list price
+
+    // Ask user for list price
     System.out.println("Enter list price: ");
     double listPrice = input.nextDouble();
     house.setListPrice(listPrice);
-    
-    // add house to listings
+
+    // Add house to listings
     listings.addListing(house);
     System.out.println("House added successfully!");
 }

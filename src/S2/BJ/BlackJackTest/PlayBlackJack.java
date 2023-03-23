@@ -1,12 +1,12 @@
 // Erick Duran & Ivan Marin
 
-package BlackJackTest;
+package S2.BJ.BlackJackTest;
 
 import java.util.ArrayList;
 
-import BlackJack.*;
-import BlackJackBase.PCard;
-import BlackJackBase.PGame;
+import S2.BJ.BlackJack.*;
+import S2.BJ.BlackJackBase.PCard;
+import S2.BJ.BlackJackBase.PGame;
 
 public class PlayBlackJack {
 	   
