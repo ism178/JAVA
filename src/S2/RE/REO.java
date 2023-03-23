@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class REO {
     // static variable to store all listings
-    private static Listings listings = new Listings();
+    // private static Listings listings = new Listings();
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -53,6 +53,7 @@ public class REO {
                     addListingMenu(input);
                     break;
                 case 2:
+                    Listings listings = Listings.getInstance();
                     System.out.println(listings.toString());
                     break;
                 case 3:
@@ -95,19 +96,31 @@ public class REO {
         }
     }
     
+<<<<<<< HEAD
 // Add listing menu option 1 - Add house
 public static void addHouse(Scanner input) {
+=======
+ // add listing menu option 1 - add house
+ public static void addHouse(Scanner input) {
+>>>>>>> 3d9b9097df34b3a9be1d90666c7da03eeb3c0ed6
     System.out.println("----------------------------------------");
     System.out.println("                    Add House");
     System.out.println("----------------------------------------");
     System.out.println("Enter address: ");
     String address = input.next();
     System.out.println("Enter zip code: ");
+<<<<<<< HEAD
     int zip = input.nextInt();
+=======
+    int zipCode = input.nextInt();
+    System.out.println("Enter square footage: ");
+    int sqft = input.nextInt();
+>>>>>>> 3d9b9097df34b3a9be1d90666c7da03eeb3c0ed6
     System.out.println("Enter number of bedrooms: ");
     int bedrooms = input.nextInt();
     System.out.println("Enter number of bathrooms: ");
     int bathrooms = input.nextInt();
+<<<<<<< HEAD
     System.out.println("Enter square footage: ");
     int sqFootage = input.nextInt();
     System.out.println("Enter yard acres: ");
@@ -126,6 +139,19 @@ public static void addHouse(Scanner input) {
     // Add house to listings
     listings.addListing(house);
     System.out.println("House added successfully!");
+=======
+    System.out.println("Enter yard acres: ");
+    double yardAcres = input.nextDouble();
+    
+    House house = new House(address, zipCode, bedrooms, bathrooms, sqft, yardAcres);
+
+    System.out.println("Enter list price: ");
+    double listPrice = input.nextDouble();
+    house.setListPrice(listPrice);
+    
+    Listings.getInstance().addListing(address, house);
+    System.out.println("House added successfully!\n" + house.toString());
+>>>>>>> 3d9b9097df34b3a9be1d90666c7da03eeb3c0ed6
 }
     // add listing menu option 2 - add condo
     public static void addCondo(Scanner input) {
@@ -134,21 +160,21 @@ public static void addHouse(Scanner input) {
         System.out.println("----------------------------------------");
         System.out.println("Enter address: ");
         String address = input.next();
+        System.out.println("Enter zip code: ");
+        int zipCode = input.nextInt();
         System.out.println("Enter square footage: ");
-        double sqft = input.nextDouble();
+        int sqft = input.nextInt();
         System.out.println("Enter number of bedrooms: ");
         int bedrooms = input.nextInt();
         System.out.println("Enter number of bathrooms: ");
         int bathrooms = input.nextInt();
-        System.out.println("Enter age: ");
-        int age = input.nextInt();
-        System.out.println("Enter balcony area: ");
-        double balconyArea = input.nextDouble();
+        System.out.println("Enter floor level: ");
+        int floorLevel = input.nextInt();
         
-        Condo condo = new Condo(address, sqft, bedrooms, bathrooms, age, balconyArea);
+        Condo condo = new Condo(address, zipCode, bedrooms, bathrooms, sqft, floorLevel);
         
         // display appraisal price
-        System.out.println("Appraisal price: $" + condo.getAppraisalPrice());
+        System.out.println("Appraisal price: $" + condo.calculateAppraisalPrice());
         
         // ask user for list price
         System.out.println("Enter list price: ");
@@ -156,31 +182,49 @@ public static void addHouse(Scanner input) {
         condo.setListPrice(listPrice);
         
         // add condo to listings
-        listings.addListing(condo);
-        System.out.println("Condo added successfully!");
+    Listings.getInstance().addListing(address, condo);
+    System.out.println("House added successfully!\n" + condo.toString());
     }
     
-    // listings menu option 3 - auto populate listings
     public static void autoPopulateListings() {
-        House h1 = new House("123 Main St", 2000, 3, 2, 10, 2);
-        h1.setListPrice(300000);
-        listings.addListing(h1);
+        Listings reoListings = Listings.getInstance();
+        int currentSize = reoListings.getListings().size();
         
-        Condo c1 = new Condo("456 Elm St", 1500, 2, 2, 5, 50);
-        c1.setListPrice(200000);
-        listings.addListing(c1);
+        House house1 = new House("34 Elm",95129, 3, 2, 2200, .2);
+        house1.setListPrice(house1.calculateAppraisalPrice() * 1.1);
+        reoListings.addListing("34 Elm", house1);
         
-        House h2 = new House("789 Oak St", 3000, 4, 3, 15, 3);
-        h2.setListPrice(450000);
-        listings.addListing(h2);
+        House house2 = new House("42 Hitchhikers",95136, 4, 3, 2800, .3);
+        house2.setListPrice(house2.calculateAppraisalPrice() * 1.1);
+        reoListings.addListing("42 Hitchhikers", house2);
         
-        Condo c2 = new Condo("321 Pine St", 1200, 1, 1, 2, 30);
-        c2.setListPrice(150000);
-        listings.addListing(c2);
+        Condo condo1 = new Condo("4876 Industrial", 95177, 3, 1, 1800, 3);
+        condo1.setListPrice(condo1.calculateAppraisalPrice() * 1.1);
+        reoListings.addListing("4876 Industrial", condo1);
         
-        System.out.println("Listings auto-populated successfully!");
-    }
+        House house3 = new House("2654 Oak",84062, 5, 53, 4200, .5);
+        house3.setListPrice(house3.calculateAppraisalPrice() * 1.1);
+        reoListings.addListing("2654 Oak", house3);
+        
+        Condo condo2 = new Condo("9875 Lexington",84063, 2, 1, 1500, 1);
+        condo2.setListPrice(condo2.calculateAppraisalPrice() * 1.1);
+        reoListings.addListing("9875 Lexington", condo2);
+        
+        Condo condo3 = new Condo("3782 Market", 84066, 3, 1, 1800, 2);
+        condo3.setListPrice(condo3.calculateAppraisalPrice() * 1.1);
+        reoListings.addListing("3782 Market", condo3);
+        
+        House house4 = new House("7608 Glenwood", 84055, 6, 3, 3900, .4);
+        house4.setListPrice(house4.calculateAppraisalPrice() * 1.1);
+        reoListings.addListing("7608 Glenwood", house4);
+        
+        House house5 = new House("1220 Apple", 84057, 8, 7, 7900, 1);
+        house5.setListPrice(house5.calculateAppraisalPrice() * 1.1);
+        reoListings.addListing("1220 Apple", house5);
     
+        int newSize = reoListings.getListings().size();
+        System.out.printf("Added %d new listings. Total listings: %d\n", newSize - currentSize, newSize);
+    }
     // main menu option 2 - bids menu
     public static void bidsMenu(Scanner input) {
         while (true) {
@@ -212,4 +256,5 @@ public static void addHouse(Scanner input) {
             }
         }
     }
+}
     
