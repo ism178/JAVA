@@ -1,4 +1,6 @@
 package S2.RE;
+import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
 
 public class REO {
@@ -23,7 +25,7 @@ public class REO {
                     listingsMenu(input);
                     break;
                 case 2:
-                    bidsMenu(input);
+                    bidsMenu(input, Listings.getInstance());
                     break;
                 case 0:
                     System.out.println("Exiting program...");
@@ -226,7 +228,7 @@ public static void addHouse(Scanner input) {
         System.out.printf("Added %d new listings. Total listings: %d\n", newSize - currentSize, newSize);
     }
     // main menu option 2 - bids menu
-    public static void bidsMenu(Scanner input) {
+    public static void bidsMenu(Scanner input, Listable listings) {
         while (true) {
             System.out.println("----------------------------------------");
             System.out.println("                    Bids");
@@ -240,13 +242,13 @@ public static void addHouse(Scanner input) {
             
             switch (choice) {
                 case 1:
-                    System.out.println("Adding new bid...");
+                    addBidMenu(input, Listings.getInstance());
                     break;
                 case 2:
-                    System.out.println("Showing existing bids...");
+                    showBidsMenu(input, Listings.getInstance());
                     break;
                 case 3:
-                    System.out.println("Auto-populating bids...");
+                    autoPopulateBidsMenu(Listings.getInstance());
                     break;
                 case 0:
                     return;
@@ -256,5 +258,120 @@ public static void addHouse(Scanner input) {
             }
         }
     }
-}
+    
+
+    // add bids menu
+    public static void addBidMenu(Scanner input, Listings listings) {
+        HashMap<String, Residential> properties = listings.getListings();
+        while (true) {
+            System.out.println("----------------------------------------");
+            System.out.println("                    Add Bid");
+            System.out.println("----------------------------------------");
+    
+            // Display list of properties with existing bids
+            System.out.println("Existing Properties with Bids:");
+            for (Residential property : properties.values()) {
+                int bidCount = property.getBidCount();
+                if (bidCount > 0) {
+                    System.out.printf("%s (%d bids)\n", property.getAddress(), bidCount);
+                }
+            }
+    
+            // Display list of properties with no bids
+            System.out.println("Properties with No Bids:");
+            for (Residential property : properties.values()) {
+                int bidCount = property.getBidCount();
+                if (bidCount == 0) {
+                    System.out.println(property.getAddress());
+                }
+            }
+    
+            // Prompt user to select a property
+            System.out.print("Enter the address of the property to bid on (or 0 to go back): ");
+            String address = input.nextLine();
+            if (address.equals("0")) {
+                return;
+            }
+            Residential property = properties.get(address);
+            if (property == null) {
+                System.out.println("Invalid address. Please try again.");
+                continue;
+            }
+    
+            // Display property details
+            System.out.println("Property Details:");
+            System.out.println(property);
+    
+            // Prompt user to enter bidder name and bid amount
+            System.out.print("Enter bidder name: ");
+            String bidder = input.nextLine();
+            System.out.print("Enter bid amount: ");
+            double bidAmount = input.nextDouble();
+            input.nextLine(); // consume extra newline character
+    
+            // Add bid to property
+            property.newBid(bidder, bidAmount);
+            System.out.println("Bid added successfully.");
+        }
+    }
+        // show bids menu
+
+            
+    public static void showBidsMenu(Scanner input, Listings listings) {
+        while (true) {
+            System.out.println("----------------------------------------");
+            System.out.println("              Show Bids");
+            System.out.println("----------------------------------------");
+
+            // display list of existing residential properties
+            int count = 1;
+            for (Residential residence : listings.getResidences()) {
+                System.out.println(count + ". " + residence.getAddress() + " (" + listings.getListing(residence.getAddress()).getBidCount() + " bids)");
+                count++;
+            }
+
+            System.out.println("0. Go back");
+
+            int choice = input.nextInt();
+
+            if (choice == 0) {
+                return;
+            } else if (choice < 1 || choice > listings.getListingCount()) {
+                System.out.println("Invalid choice. Try again.");
+                continue;
+            }
+
+            // display details of selected residential property and its bids
+            Residential selectedResidence = listings.getResidences().toArray(new Residential[0])[choice-1];
+            System.out.println("Details for " + selectedResidence.getAddress() + ":");
+            System.out.println(selectedResidence.toString());
+            System.out.println("Bids:");
+            HashMap<String, Double> bids = selectedResidence.getBids();
+            for (String bidder : bids.keySet()) {
+                System.out.printf("Bidder: %s  Amount: $%,.2f\n", bidder, bids.get(bidder));
+            }
+            System.out.println("----------------------------------------");
+        }
+    }
+
+        // auto-populate bids menu
+        public static void autoPopulateBidsMenu(Listable listings) {
+            Random rand = new Random();
+            HashMap<String, Residential> properties = listings.getListings();
+            
+            for (Residential property : properties.values()) {
+                int numBids = rand.nextInt(5) + 1; // generate a random number of bids between 1 and 5
+                for (int i = 0; i < numBids; i++) {
+                    String[] autoBidders= {"Patric Stewart","Walter Koenig","William Shatner","Leonard Nimoy","DeForect Kelley","James Doohan","George Takei","Majel Barrett","Nichelle Nichol","Jonathan Frank","Marina Sirtis","Brent Spiner","Gates McFadden","Michael Dorn","LeVar Burton","Wil Wheaton","Colm Meaney","Michelle Forbes"};
+                    String bidder = autoBidders[rand.nextInt(autoBidders.length)]; // select a random bidder name from the list
+                    double bid = property.calculateAppraisalPrice() * (1 + rand.nextDouble() * 0.2); // generate a random bid between 100% and 120% of the appraisal price
+                    property.newBid(bidder, bid);
+                }
+            }
+            
+            System.out.println("Auto-populate bids completed.");
+        }
+        
+}    
+
     
