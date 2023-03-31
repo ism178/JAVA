@@ -98,50 +98,21 @@ public class REO {
         }
     }
     
-<<<<<<< HEAD
-// Add listing menu option 1 - Add house
-public static void addHouse(Scanner input) {
-=======
  // add listing menu option 1 - add house
  public static void addHouse(Scanner input) {
->>>>>>> 3d9b9097df34b3a9be1d90666c7da03eeb3c0ed6
     System.out.println("----------------------------------------");
     System.out.println("                    Add House");
     System.out.println("----------------------------------------");
     System.out.println("Enter address: ");
     String address = input.next();
     System.out.println("Enter zip code: ");
-<<<<<<< HEAD
-    int zip = input.nextInt();
-=======
     int zipCode = input.nextInt();
     System.out.println("Enter square footage: ");
     int sqft = input.nextInt();
->>>>>>> 3d9b9097df34b3a9be1d90666c7da03eeb3c0ed6
     System.out.println("Enter number of bedrooms: ");
     int bedrooms = input.nextInt();
     System.out.println("Enter number of bathrooms: ");
     int bathrooms = input.nextInt();
-<<<<<<< HEAD
-    System.out.println("Enter square footage: ");
-    int sqFootage = input.nextInt();
-    System.out.println("Enter yard acres: ");
-    int yardAcres = input.nextInt();
-
-    House house = new House(address, zip, bedrooms, bathrooms, sqFootage, yardAcres);
-
-    // Display appraisal price
-    System.out.println("Appraisal price: $" + house.getAppraisalPrice());
-
-    // Ask user for list price
-    System.out.println("Enter list price: ");
-    double listPrice = input.nextDouble();
-    house.setListPrice(listPrice);
-
-    // Add house to listings
-    listings.addListing(house);
-    System.out.println("House added successfully!");
-=======
     System.out.println("Enter yard acres: ");
     double yardAcres = input.nextDouble();
     
@@ -153,7 +124,6 @@ public static void addHouse(Scanner input) {
     
     Listings.getInstance().addListing(address, house);
     System.out.println("House added successfully!\n" + house.toString());
->>>>>>> 3d9b9097df34b3a9be1d90666c7da03eeb3c0ed6
 }
     // add listing menu option 2 - add condo
     public static void addCondo(Scanner input) {
