@@ -2,7 +2,7 @@
 // Lab 9a: BlackJack Part 1: BJCard
 // Mar 01, 2023
 
-package BlackJack;
+package S2.BJ.BlackJack;
 
 import static org.junit.Assert.assertEquals;
 

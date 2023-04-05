@@ -1,15 +1,15 @@
 // Erick Duran & Ivan Marin
-// Lab 9b: BlackJack, Part 2—BJDeck
+// Lab 9b: BlackJack, Part 2ï¿½BJDeck
 // Mar 04, 2023
 
-package BlackJack;
+package S2.BJ.BlackJack;
 
 import java.util.*;
 
-import BlackJackBase.PCard;
-import BlackJackBase.PDeck;
+import S2.BJ.BlackJackBase.PCard;
+import S2.BJ.BlackJackBase.PHand;
 
-public class BJDeck implements PDeck {
+public class BJDeck implements PHand {
     private ArrayList<BJCard> cards = new ArrayList<BJCard>();
     
     public BJDeck() {
