@@ -2,11 +2,11 @@
 // Lab 9a: BlackJack Part 1: BJCard
 // Mar 01, 2023
 
-package BlackJack;
+package S2.BJ.BlackJack;
 
 import java.awt.Color;
 
-import BlackJackBase.PCard;
+import S2.BJ.BlackJackBase.PCard;
 
 public class BJCard extends PCard {
 	

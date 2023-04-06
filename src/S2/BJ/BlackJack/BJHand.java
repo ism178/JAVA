@@ -2,13 +2,13 @@
 // Lab 10a: BlackJack, Part 3�BJHand
 // Mar 11, 2023
 
-package BlackJack;
+package S2.BJ.BlackJack;
 
 import java.util.ArrayList;
-import BlackJackBase.PCard;
-import BlackJackBase.PGame;
+import S2.BJ.BlackJackBase.PCard;
+import S2.BJ.BlackJackBase.PGame;
 
-public class BJHand implements PGame {
+public class BJHand implements PHand {
     ArrayList<PCard> hand;
 
     public BJHand() {

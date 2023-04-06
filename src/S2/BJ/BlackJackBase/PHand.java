@@ -1,4 +1,4 @@
-package BlackJackBase;
+package S2.BJ.BlackJackBase;
 
 /**
  * Base interface used to manage a collection of cards.
@@ -9,7 +9,7 @@ package BlackJackBase;
  * @Minor modifications by Jeff Light
  * @since 2019-11-09
  */
-public interface PDeck {
+public interface PHand {
 
 	/** Randomizes the deck. */
 	public void shuffle();

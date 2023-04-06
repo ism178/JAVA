@@ -1,4 +1,4 @@
-package BlackJackBase;
+package S2.BJ.BlackJackBase;
 
 import java.awt.Color;
 import java.awt.Dimension;
