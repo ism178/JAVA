@@ -111,8 +111,7 @@ public class DrawPanel extends JPanel {
 		Graphics2D g2 = (Graphics2D) g;			//Allows us to draw using both the Graphics class methods and the Graphics2D class methods
 
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);	//Makes drawn shapes and fonts clearer
-		int time =1
-		;
+		int time =1;
 		switch (time) {
 			case 1:
 				day(g2);
